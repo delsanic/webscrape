@@ -1,7 +1,7 @@
 var express = require('express')
-  , http = require('http')
-  , scrape = require("./lib/webscrape");
-  
+    , http = require('http')
+    , scrape = require("./lib/webscrape");
+
 var app = express();
 
 var port = process.env.PORT || 3000;
@@ -20,8 +20,8 @@ app.configure(function(){
   app.use('/static', express.static(__dirname + '/public',{maxAge: 86400000})); 
 });
 
-app.configure('development', function(){
-  app.use(express.errorHandler());
+app.configure('development', function () {
+    app.use(express.errorHandler());
 });
 
 //Routes

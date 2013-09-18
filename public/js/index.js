@@ -1,0 +1,1 @@
+$(function () {    $(".filter").keyup(function(e){        var val = $(this).val();        var re = new RegExp(val);        $("li").hide();        $('li').filter(function(index,element) {            var currVal = $(element).find("a").html();             return currVal.match(re);        }).show();    });});

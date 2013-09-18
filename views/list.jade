@@ -1,0 +1,18 @@
+!!! 5
+html
+  head
+    title Links
+    script(src='//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js')
+    script(src='/static/index.js')
+  body
+    h3 Links for #{url}
+    | Filter Links:
+    input.filter
+    | (regex works)
+    ul
+      each item in links
+        li 
+          span.text
+            | #{item.text} : 
+          span.link
+            a(href='/?u=#{item.link}') #{item.link}

@@ -12,8 +12,8 @@ app.configure(function(){
   app.set('views', __dirname + '/views');
   app.set('view engine', 'jade');
   app.set('view options', {layout: false});
-  app.use(express.favicon());
-  app.use(express.logger('dev'));
+  //app.use(express.favicon());
+  //app.use(express.logger('dev'));
   app.use(express.bodyParser());
   app.use(express.methodOverride());
   app.use(app.router);
@@ -28,16 +28,25 @@ app.configure('development', function(){
 app.get('/', function(req, res){
     if(req.query.u){
         var url = req.query.u ;
-        scrape.getLinks(url,function(links){  
-            //res.setHeader("Content-Type", "text/javascript");
-            //for(var link in links){
-            //    res.write();
-           // }
+        scrape.getLinks(url,function(links){              
             res.render("list",{links:links,url:url});    
         });
     }else{
-        res.sendfile(__dirname + '/public/index.html');
+        res.render("index");
+    }
+});
+
+app.get('/json', function(req, res){
+    if(req.query.u){
+        var url = req.query.u ;
+        scrape.getLinks(url,function(links){  
+            res.setHeader("Content-Type", "text/javascript");            
+            res.end(JSON.stringify(links));            			
+        });
+    }else{
+        res.end('{"error":"Please specify URL as \'u\' parameter. Eg : http://www.google.com"}');
     }
 });
 
 app.listen(port,ip);
+console.log("Server running at http://" + ip + ":" + port + "/");

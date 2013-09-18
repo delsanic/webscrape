@@ -21,10 +21,11 @@
   },
 
   "dependencies": {
-      "express":"*",
-      "jade":"*",
-	  "request":"*",
-	  "cheerio":"*"
+      "express":"3.4.0",
+      "jade":"0.35.0",
+	  "request":"2.27.0",
+	  "cheerio":"0.12.2",
+	  "string":"1.6.0"
 	  
   },
   "devDependencies": {},

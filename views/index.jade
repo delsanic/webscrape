@@ -1,12 +1,10 @@
 extends layout
 
-h1 Webscrape
-form(action='/')
-    | URL :
-    input(name='u')
-    | (Eg : http://www.google.com)
-    br
-    input(type='submit', value='Submit')
-br
-| Author :
-a(href='http://github.com/delsnic') @delsanic
+block content
+  h1 Webscrape
+  form(action='/')
+      | URL :
+      input(name='u')
+      | (Eg : http://www.google.com)
+      br
+      input(type='submit', value='Submit')

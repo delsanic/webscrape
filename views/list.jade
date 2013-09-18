@@ -1,15 +1,16 @@
 extends layout
 
-h3 Links for #{url}
-| Filter Links:
-input.filter
-| (regex works)
-ul
-  each item in links
-    li
-      span.text
-        | !{item.text} :&#187;&nbsp;
-      span.link
-        a(href='/?u=#{item.link}') #{item.link}
-script(src='//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js')
-script(src='/static/js/index.js')
+block content
+  h3 Links for #{url}
+  | Filter Links:
+  input.filter
+  | (regex works)
+  ul
+    each item in links
+      li
+        span.text
+          | !{item.text} :&#187;&nbsp;
+        span.link
+          a(href='/?u=#{item.link}') #{item.link}
+  script(src='//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js')
+  script(src='/static/js/index.js')

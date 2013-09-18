@@ -17,7 +17,7 @@ app.configure(function(){
   app.use(express.bodyParser());
   app.use(express.methodOverride());
   app.use(app.router);
-  app.use('/static', express.static(__dirname + '/public',{maxAge: 86400000})); 
+  app.use('/static', express.static(__dirname + '/public',{maxAge: 86400000}));
 });
 
 app.configure('development', function () {
@@ -28,8 +28,8 @@ app.configure('development', function () {
 app.get('/', function(req, res){
     if(req.query.u){
         var url = req.query.u ;
-        scrape.getLinks(url,function(links){              
-            res.render("list",{links:links,url:url});    
+        scrape.getLinks(url,function(links){
+            res.render("list",{links:links,url:url});
         });
     }else{
         res.render("index");
@@ -39,9 +39,9 @@ app.get('/', function(req, res){
 app.get('/json', function(req, res){
     if(req.query.u){
         var url = req.query.u ;
-        scrape.getLinks(url,function(links){  
-            res.setHeader("Content-Type", "text/javascript");            
-            res.end(JSON.stringify(links));            			
+        scrape.getLinks(url,function(links){
+            res.setHeader("Content-Type", "text/javascript");
+            res.end(JSON.stringify(links));
         });
     }else{
         res.end('{"error":"Please specify URL as \'u\' parameter. Eg : http://www.google.com"}');
